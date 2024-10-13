@@ -4,23 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Futuristic Light Website</title>
+    <title>Unique Modern Website</title>
     
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap" rel="stylesheet">
     
     <style>
         /* Root Variables */
         :root {
-            --primary-color: #5D9CEC;
-            --secondary-color: #56CCF2;
-            --accent-color: #2D9CDB;
-            --background-color: #F0F4F8;
-            --text-color: #333;
-            --glass-bg: rgba(255, 255, 255, 0.6);
-            --glass-border: rgba(0, 0, 0, 0.1);
-            --box-shadow-light: 0 4px 15px rgba(0, 0, 0, 0.1);
-            --transition-speed: 0.3s ease;
+            --primary-color: #FFFFFF;
+            --secondary-color: #F7F7F7;
+            --accent-color: #4A4A4A;
+            --light-gray: #eaeaea;
+            --border-color: #D1D1D1;
+            --box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.05);
+            --transition-speed: 0.4s ease;
         }
 
         * {
@@ -30,133 +28,145 @@
         }
 
         body {
-            font-family: 'Roboto', sans-serif;
-            background-color: var(--background-color);
-            color: var(--text-color);
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--primary-color);
+            color: var(--accent-color);
             line-height: 1.6;
-            overflow-x: hidden;
         }
 
-        /* Glassmorphism Card Styles */
-        .glass {
-            background: var(--glass-bg);
-            backdrop-filter: blur(10px);
-            border: 1px solid var(--glass-border);
-            border-radius: 15px;
-            box-shadow: var(--box-shadow-light);
-            padding: 20px;
-            margin: 20px;
-            transition: transform var(--transition-speed), box-shadow var(--transition-speed);
-        }
-
-        .glass:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
-        }
-
-        /* Header */
+        /* Layout Styles */
         header {
-            background: var(--primary-color);
-            color: white;
-            padding: 1.5rem;
+            background: var(--secondary-color);
+            padding: 2rem;
             text-align: center;
+            box-shadow: var(--box-shadow);
             position: sticky;
             top: 0;
             z-index: 1000;
-            border-bottom: 2px solid var(--secondary-color);
-            box-shadow: var(--box-shadow-light);
         }
 
         header h1 {
             font-size: 2.5rem;
-            margin: 0;
-            text-transform: uppercase;
+            color: var(--accent-color);
+            letter-spacing: 0.05em;
         }
 
         /* Navigation */
         nav {
             display: flex;
             justify-content: center;
-            background: var(--secondary-color);
-            padding: 1rem;
+            gap: 2rem;
+            margin-top: 1rem;
         }
 
         nav a {
-            color: white;
+            color: var(--accent-color);
             text-decoration: none;
-            font-size: 1.2rem;
-            text-transform: uppercase;
-            margin: 0 15px;
-            transition: color var(--transition-speed);
+            font-weight: 700;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            transition: background-color var(--transition-speed);
         }
 
         nav a:hover {
-            color: var(--accent-color);
+            background-color: var(--light-gray);
         }
 
         /* Hero Section */
         .hero {
-            height: 80vh;
+            height: 75vh;
             display: flex;
             align-items: center;
             justify-content: center;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            padding: 0 20px;
             position: relative;
-            background: linear-gradient(135deg, #F0F4F8, #C9E5F1);
         }
 
         .hero h2 {
-            font-size: 3.5rem;
-            color: var(--primary-color);
-            text-transform: uppercase;
-            z-index: 10;
+            font-size: 3rem;
+            font-weight: 400;
+            color: var(--accent-color);
+            text-align: center;
         }
 
-        /* Subtle Background Animation */
         .hero::before {
             content: "";
             position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: radial-gradient(circle, rgba(255, 255, 255, 0.7), transparent 80%);
-            animation: glow 12s infinite alternate;
+            width: 200px;
+            height: 200px;
+            background: var(--light-gray);
+            top: 20%;
+            left: -50px;
+            border-radius: 50%;
+            filter: blur(30px);
         }
 
-        @keyframes glow {
-            0% {
-                transform: scale(1);
-                opacity: 1;
-            }
-            100% {
-                transform: scale(1.1);
-                opacity: 0.9;
-            }
+        .hero::after {
+            content: "";
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            background: var(--light-gray);
+            bottom: -100px;
+            right: -100px;
+            border-radius: 50%;
+            filter: blur(60px);
         }
 
         /* Main Content Area */
         .container {
-            display: grid;
-            grid-template-columns: 1fr 2fr;
-            gap: 20px;
             max-width: 1200px;
-            margin: 40px auto;
+            margin: 50px auto;
             padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            gap: 2rem;
         }
 
+        /* Left Sidebar */
+        aside {
+            flex: 1;
+            background: var(--secondary-color);
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: var(--box-shadow);
+        }
+
+        aside h3 {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            color: var(--accent-color);
+        }
+
+        aside ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        aside ul li {
+            padding: 10px 0;
+            border-bottom: 1px solid var(--border-color);
+            font-size: 1.1rem;
+        }
+
+        aside ul li:last-child {
+            border-bottom: none;
+        }
+
+        /* Main Content */
         .content {
+            flex: 3;
             display: flex;
             flex-direction: column;
-            gap: 20px;
+            gap: 30px;
         }
 
-        /* Content Sections */
         section {
-            padding: 20px;
-            background: var(--glass-bg);
-            border-radius: 10px;
-            border: 1px solid var(--glass-border);
-            backdrop-filter: blur(10px);
+            background: var(--primary-color);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: var(--box-shadow);
             transition: transform var(--transition-speed);
         }
 
@@ -166,56 +176,37 @@
 
         section h2 {
             font-size: 2rem;
-            color: var(--accent-color);
-            text-transform: uppercase;
+            margin-bottom: 10px;
         }
 
         section p {
-            color: #555;
             font-size: 1.1rem;
-        }
-
-        /* Sidebar */
-        aside {
-            position: sticky;
-            top: 100px;
-            background: var(--glass-bg);
-            border-radius: 15px;
-            padding: 20px;
-            border: 1px solid var(--glass-border);
-            box-shadow: var(--box-shadow-light);
+            color: #666;
+            line-height: 1.8;
         }
 
         /* Footer */
         footer {
-            background: var(--primary-color);
-            color: white;
-            text-align: center;
+            background: var(--secondary-color);
             padding: 2rem;
-            margin-top: 40px;
-            border-top: 2px solid var(--secondary-color);
+            text-align: center;
+            margin-top: 50px;
+            box-shadow: var(--box-shadow);
         }
 
         footer p {
-            margin: 0;
+            font-size: 1rem;
+            color: var(--accent-color);
         }
 
         /* Responsive Layout */
-        @media (max-width: 1024px) {
+        @media (max-width: 768px) {
             .container {
-                grid-template-columns: 1fr;
+                flex-direction: column;
             }
 
-            header h1 {
-                font-size: 2rem;
-            }
-
-            .hero h2 {
-                font-size: 2.5rem;
-            }
-
-            nav a {
-                font-size: 1rem;
+            aside {
+                order: 2;
             }
         }
     </style>
@@ -224,7 +215,7 @@
 
     <!-- Header -->
     <header id="top">
-        <h1>Future Bright</h1>
+        <h1>Modern Tech Solutions</h1>
     </header>
 
     <!-- Navigation Bar -->
@@ -237,43 +228,46 @@
 
     <!-- Hero Section -->
     <section class="hero" id="home">
-        <h2>Welcome to the Future</h2>
+        <h2>Innovating the Future, Today</h2>
     </section>
 
     <!-- Main Content Area -->
     <div class="container">
         <!-- Left Sidebar -->
         <aside>
-            <h2>Quick Links</h2>
-            <p>Explore our solutions for a brighter future.</p>
+            <h3>Quick Links</h3>
+            <ul>
+                <li>Home</li>
+                <li>About Us</li>
+                <li>Services</li>
+                <li>Contact</li>
+            </ul>
         </aside>
 
         <!-- Main Content -->
         <div class="content">
             <section id="about">
                 <h2>About Us</h2>
-                <p>At Future Bright, we believe in innovation and progress. Our mission is to provide top-notch services that help businesses grow with cutting-edge technology.</p>
+                <p>We are a modern tech company focused on delivering cutting-edge solutions to clients worldwide. Our approach is rooted in innovation, sustainability, and creativity.</p>
             </section>
 
             <section id="services">
                 <h2>Our Services</h2>
-                <p>We offer a range of services, including cloud computing, artificial intelligence, and digital transformation solutions that help future-proof your business.</p>
+                <p>From cloud computing to AI integration, we offer a range of services designed to help your business succeed in a digital-first world. Explore how our team can accelerate your digital transformation.</p>
             </section>
 
             <section id="contact">
                 <h2>Contact Us</h2>
-                <p>Have any questions? Get in touch with us to learn how we can assist you in achieving your goals.</p>
+                <p>We'd love to hear from you. Reach out via email or phone to learn more about our offerings and how we can work together.</p>
             </section>
         </div>
     </div>
 
     <!-- Footer -->
     <footer>
-        <p>&copy; 2024 Future Bright. All Rights Reserved.</p>
+        <p>&copy; 2024 Modern Tech Solutions. All rights reserved.</p>
     </footer>
 
 </body>
 </html>
-
-
 
