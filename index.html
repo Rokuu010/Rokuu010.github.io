@@ -4,19 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Advanced Responsive Website</title>
+    <title>Futuristic Website Layout</title>
     
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
     
     <style>
+        /* Root Variables */
         :root {
-            /* Define CSS variables for colors and fonts */
-            --primary-color: #3498db;
-            --secondary-color: #2c3e50;
-            --accent-color: #e74c3c;
-            --text-color: #333;
-            --font-family: 'Roboto', sans-serif;
+            --primary-color: #0d6efd;
+            --accent-color: #00e0ff;
+            --background-color: #111;
+            --text-color: #e0e0e0;
+            --glass-bg: rgba(255, 255, 255, 0.1);
+            --glass-border: rgba(255, 255, 255, 0.2);
+            --neon-glow: 0 0 15px var(--accent-color), 0 0 30px var(--accent-color), 0 0 45px var(--primary-color);
         }
 
         * {
@@ -26,137 +28,197 @@
         }
 
         body {
-            font-family: var(--font-family);
-            background-color: #f4f4f4;
+            font-family: 'Roboto', sans-serif;
+            background-color: var(--background-color);
             color: var(--text-color);
             line-height: 1.6;
-            scroll-behavior: smooth;
+            overflow-x: hidden;
+        }
+
+        /* Glassmorphism Card Styles */
+        .glass {
+            background: var(--glass-bg);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--glass-border);
+            border-radius: 10px;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+            padding: 20px;
+            margin: 20px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .glass:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 40px rgba(0, 0, 0, 0.7);
         }
 
         /* Header */
         header {
-            background: var(--secondary-color);
+            background: rgba(0, 0, 0, 0.8);
             color: white;
             padding: 2rem;
             text-align: center;
             position: sticky;
             top: 0;
-            z-index: 10;
-            transition: background-color 0.3s ease;
-        }
-
-        header.sticky {
-            background-color: var(--primary-color);
+            z-index: 1000;
+            box-shadow: var(--neon-glow);
         }
 
         header h1 {
+            font-size: 3rem;
             margin: 0;
+            text-transform: uppercase;
         }
 
         /* Navigation */
         nav {
             display: flex;
-            justify-content: center;
-            background: var(--primary-color);
+            justify-content: space-around;
+            align-items: center;
+            background: #0d6efd;
             padding: 1rem;
+            z-index: 10;
             position: sticky;
             top: 0;
-            z-index: 10;
+            box-shadow: var(--neon-glow);
         }
 
         nav a {
             color: white;
-            margin: 0 1rem;
             text-decoration: none;
+            font-size: 1.2rem;
+            text-transform: uppercase;
             padding: 0.5rem 1rem;
-            transition: background 0.3s ease;
+            transition: color 0.3s ease;
         }
 
         nav a:hover {
-            background: var(--accent-color);
-            border-radius: 5px;
+            color: var(--accent-color);
         }
 
         /* Hero Section */
         .hero {
-            height: 500px;
-            background: url('https://via.placeholder.com/1200x500') no-repeat center center/cover;
+            height: 80vh;
             display: flex;
-            justify-content: center;
             align-items: center;
-            color: white;
+            justify-content: center;
             position: relative;
+            background: linear-gradient(45deg, #0d6efd 0%, #111 100%);
+            overflow: hidden;
         }
 
         .hero h2 {
-            background-color: rgba(0, 0, 0, 0.6);
-            padding: 1rem 2rem;
-            border-radius: 10px;
+            font-size: 4rem;
+            color: white;
+            text-transform: uppercase;
+            z-index: 10;
         }
 
-        /* Main Content */
+        /* Subtle Animated Background */
+        .hero::before {
+            content: "";
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, var(--primary-color), transparent 70%);
+            animation: pulse 10s infinite;
+            z-index: 1;
+            opacity: 0.4;
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.1);
+            }
+        }
+
+        /* Main Content Area */
         .container {
             display: grid;
-            grid-template-columns: 1fr 3fr 1fr;
+            grid-template-columns: 1fr 2fr;
             gap: 20px;
-            padding: 20px;
-            margin: 20px auto;
-            max-width: 1200px;
+            max-width: 1400px;
+            margin: 40px auto;
+            padding: 0 20px;
         }
 
-        .container > article, .container > aside {
-            background: white;
+        .content {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        /* Content Sections */
+        section {
             padding: 20px;
+            background: var(--glass-bg);
             border-radius: 10px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid var(--glass-border);
+            backdrop-filter: blur(10px);
+            transition: transform 0.3s ease-in-out;
         }
 
-        .container > article:hover, .container > aside:hover {
+        section:hover {
             transform: translateY(-5px);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        section h2 {
+            font-size: 2.5rem;
+            color: var(--accent-color);
+            text-transform: uppercase;
+        }
+
+        section p {
+            color: #ccc;
+            font-size: 1.2rem;
         }
 
         /* Sidebar */
-        aside h2, aside p {
-            margin-bottom: 15px;
-        }
-
-        /* Content */
-        section.content h2 {
-            margin-bottom: 10px;
-        }
-
-        section.content p {
-            margin-bottom: 20px;
+        aside {
+            position: sticky;
+            top: 100px;
+            background: var(--glass-bg);
+            border-radius: 10px;
+            padding: 20px;
+            border: 1px solid var(--glass-border);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
         }
 
         /* Footer */
         footer {
-            background: var(--secondary-color);
+            background: rgba(0, 0, 0, 0.9);
             color: white;
             text-align: center;
-            padding: 1rem 0;
+            padding: 2rem;
+            margin-top: 40px;
         }
 
         footer p {
             margin: 0;
         }
 
-        /* Responsive layout */
+        /* Responsive Layout */
         @media (max-width: 1024px) {
             .container {
                 grid-template-columns: 1fr;
             }
 
-            nav {
-                flex-direction: column;
+            header h1 {
+                font-size: 2.5rem;
             }
-        }
 
-        /* Smooth Scrolling */
-        html {
-            scroll-behavior: smooth;
+            .hero h2 {
+                font-size: 3rem;
+            }
+
+            nav a {
+                font-size: 1rem;
+            }
         }
     </style>
 </head>
@@ -164,7 +226,7 @@
 
     <!-- Header -->
     <header id="top">
-        <h1>Advanced Responsive Website</h1>
+        <h1>Future Tech</h1>
     </header>
 
     <!-- Navigation Bar -->
@@ -173,12 +235,11 @@
         <a href="#about">About</a>
         <a href="#services">Services</a>
         <a href="#contact">Contact</a>
-        <a href="#top">Top</a>
     </nav>
 
     <!-- Hero Section -->
     <section class="hero" id="home">
-        <h2>Welcome to Your Future Website</h2>
+        <h2>Welcome to the Future</h2>
     </section>
 
     <!-- Main Content Area -->
@@ -186,49 +247,34 @@
         <!-- Left Sidebar -->
         <aside>
             <h2>Quick Links</h2>
-            <p>Here are some quick links to guide users through the site, social media, or recent posts.</p>
+            <p>Explore our technology solutions.</p>
         </aside>
 
         <!-- Main Content -->
-        <section class="content" id="about">
-            <h2>About Us</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque vehicula augue a velit tincidunt, nec auctor lectus placerat. In nec dui convallis, blandit arcu eu, varius leo.</p>
+        <div class="content">
+            <section id="about">
+                <h2>About Us</h2>
+                <p>We are at the forefront of technology, delivering cutting-edge solutions to clients worldwide. Innovation is in our DNA, and we strive to push the boundaries of what's possible in every project we undertake.</p>
+            </section>
 
-            <h2 id="services">Our Services</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam at lacus ac sapien volutpat suscipit. Aliquam vitae turpis non eros blandit tincidunt ut ac purus.</p>
+            <section id="services">
+                <h2>Our Services</h2>
+                <p>We specialize in a range of advanced tech solutions including AI, cloud computing, blockchain, and more. Let us help you future-proof your business with world-class innovation.</p>
+            </section>
 
-            <h2 id="contact">Contact Us</h2>
-            <p>For any inquiries, please contact us through email or call our office. We value all forms of feedback and inquiries.</p>
-        </section>
-
-        <!-- Right Sidebar -->
-        <aside>
-            <h2>Stay Connected</h2>
-            <p>This sidebar can contain social media widgets, contact info, or promotions. Keep your audience engaged with regular updates.</p>
-        </aside>
+            <section id="contact">
+                <h2>Contact Us</h2>
+                <p>Reach out to us via email or phone. Our team is ready to provide the support you need to make the most of emerging technologies.</p>
+            </section>
+        </div>
     </div>
 
     <!-- Footer -->
     <footer>
-        <p>&copy; 2024 Advanced Website Layout. All Rights Reserved.</p>
+        <p>&copy; 2024 Future Tech. All Rights Reserved.</p>
     </footer>
-
-    <!-- JavaScript for Sticky Header -->
-    <script>
-        window.onscroll = function() {stickyHeader()};
-
-        var header = document.querySelector("header");
-        var sticky = header.offsetTop;
-
-        function stickyHeader() {
-            if (window.pageYOffset > sticky) {
-                header.classList.add("sticky");
-            } else {
-                header.classList.remove("sticky");
-            }
-        }
-    </script>
 
 </body>
 </html>
+
 
