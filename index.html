@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Futuristic Website Layout</title>
+    <title>Futuristic Light Website</title>
     
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
@@ -12,13 +12,15 @@
     <style>
         /* Root Variables */
         :root {
-            --primary-color: #0d6efd;
-            --accent-color: #00e0ff;
-            --background-color: #111;
-            --text-color: #e0e0e0;
-            --glass-bg: rgba(255, 255, 255, 0.1);
-            --glass-border: rgba(255, 255, 255, 0.2);
-            --neon-glow: 0 0 15px var(--accent-color), 0 0 30px var(--accent-color), 0 0 45px var(--primary-color);
+            --primary-color: #5D9CEC;
+            --secondary-color: #56CCF2;
+            --accent-color: #2D9CDB;
+            --background-color: #F0F4F8;
+            --text-color: #333;
+            --glass-bg: rgba(255, 255, 255, 0.6);
+            --glass-border: rgba(0, 0, 0, 0.1);
+            --box-shadow-light: 0 4px 15px rgba(0, 0, 0, 0.1);
+            --transition-speed: 0.3s ease;
         }
 
         * {
@@ -40,32 +42,33 @@
             background: var(--glass-bg);
             backdrop-filter: blur(10px);
             border: 1px solid var(--glass-border);
-            border-radius: 10px;
-            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+            border-radius: 15px;
+            box-shadow: var(--box-shadow-light);
             padding: 20px;
             margin: 20px;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            transition: transform var(--transition-speed), box-shadow var(--transition-speed);
         }
 
         .glass:hover {
             transform: translateY(-10px);
-            box-shadow: 0 8px 40px rgba(0, 0, 0, 0.7);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
         }
 
         /* Header */
         header {
-            background: rgba(0, 0, 0, 0.8);
+            background: var(--primary-color);
             color: white;
-            padding: 2rem;
+            padding: 1.5rem;
             text-align: center;
             position: sticky;
             top: 0;
             z-index: 1000;
-            box-shadow: var(--neon-glow);
+            border-bottom: 2px solid var(--secondary-color);
+            box-shadow: var(--box-shadow-light);
         }
 
         header h1 {
-            font-size: 3rem;
+            font-size: 2.5rem;
             margin: 0;
             text-transform: uppercase;
         }
@@ -73,14 +76,9 @@
         /* Navigation */
         nav {
             display: flex;
-            justify-content: space-around;
-            align-items: center;
-            background: #0d6efd;
+            justify-content: center;
+            background: var(--secondary-color);
             padding: 1rem;
-            z-index: 10;
-            position: sticky;
-            top: 0;
-            box-shadow: var(--neon-glow);
         }
 
         nav a {
@@ -88,8 +86,8 @@
             text-decoration: none;
             font-size: 1.2rem;
             text-transform: uppercase;
-            padding: 0.5rem 1rem;
-            transition: color 0.3s ease;
+            margin: 0 15px;
+            transition: color var(--transition-speed);
         }
 
         nav a:hover {
@@ -103,37 +101,36 @@
             align-items: center;
             justify-content: center;
             position: relative;
-            background: linear-gradient(45deg, #0d6efd 0%, #111 100%);
-            overflow: hidden;
+            background: linear-gradient(135deg, #F0F4F8, #C9E5F1);
         }
 
         .hero h2 {
-            font-size: 4rem;
-            color: white;
+            font-size: 3.5rem;
+            color: var(--primary-color);
             text-transform: uppercase;
             z-index: 10;
         }
 
-        /* Subtle Animated Background */
+        /* Subtle Background Animation */
         .hero::before {
             content: "";
             position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, var(--primary-color), transparent 70%);
-            animation: pulse 10s infinite;
-            z-index: 1;
-            opacity: 0.4;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.7), transparent 80%);
+            animation: glow 12s infinite alternate;
         }
 
-        @keyframes pulse {
-            0%, 100% {
+        @keyframes glow {
+            0% {
                 transform: scale(1);
+                opacity: 1;
             }
-            50% {
+            100% {
                 transform: scale(1.1);
+                opacity: 0.9;
             }
         }
 
@@ -142,7 +139,7 @@
             display: grid;
             grid-template-columns: 1fr 2fr;
             gap: 20px;
-            max-width: 1400px;
+            max-width: 1200px;
             margin: 40px auto;
             padding: 0 20px;
         }
@@ -150,7 +147,7 @@
         .content {
             display: flex;
             flex-direction: column;
-            gap: 30px;
+            gap: 20px;
         }
 
         /* Content Sections */
@@ -160,7 +157,7 @@
             border-radius: 10px;
             border: 1px solid var(--glass-border);
             backdrop-filter: blur(10px);
-            transition: transform 0.3s ease-in-out;
+            transition: transform var(--transition-speed);
         }
 
         section:hover {
@@ -168,14 +165,14 @@
         }
 
         section h2 {
-            font-size: 2.5rem;
+            font-size: 2rem;
             color: var(--accent-color);
             text-transform: uppercase;
         }
 
         section p {
-            color: #ccc;
-            font-size: 1.2rem;
+            color: #555;
+            font-size: 1.1rem;
         }
 
         /* Sidebar */
@@ -183,19 +180,20 @@
             position: sticky;
             top: 100px;
             background: var(--glass-bg);
-            border-radius: 10px;
+            border-radius: 15px;
             padding: 20px;
             border: 1px solid var(--glass-border);
-            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+            box-shadow: var(--box-shadow-light);
         }
 
         /* Footer */
         footer {
-            background: rgba(0, 0, 0, 0.9);
+            background: var(--primary-color);
             color: white;
             text-align: center;
             padding: 2rem;
             margin-top: 40px;
+            border-top: 2px solid var(--secondary-color);
         }
 
         footer p {
@@ -209,11 +207,11 @@
             }
 
             header h1 {
-                font-size: 2.5rem;
+                font-size: 2rem;
             }
 
             .hero h2 {
-                font-size: 3rem;
+                font-size: 2.5rem;
             }
 
             nav a {
@@ -226,7 +224,7 @@
 
     <!-- Header -->
     <header id="top">
-        <h1>Future Tech</h1>
+        <h1>Future Bright</h1>
     </header>
 
     <!-- Navigation Bar -->
@@ -247,34 +245,35 @@
         <!-- Left Sidebar -->
         <aside>
             <h2>Quick Links</h2>
-            <p>Explore our technology solutions.</p>
+            <p>Explore our solutions for a brighter future.</p>
         </aside>
 
         <!-- Main Content -->
         <div class="content">
             <section id="about">
                 <h2>About Us</h2>
-                <p>We are at the forefront of technology, delivering cutting-edge solutions to clients worldwide. Innovation is in our DNA, and we strive to push the boundaries of what's possible in every project we undertake.</p>
+                <p>At Future Bright, we believe in innovation and progress. Our mission is to provide top-notch services that help businesses grow with cutting-edge technology.</p>
             </section>
 
             <section id="services">
                 <h2>Our Services</h2>
-                <p>We specialize in a range of advanced tech solutions including AI, cloud computing, blockchain, and more. Let us help you future-proof your business with world-class innovation.</p>
+                <p>We offer a range of services, including cloud computing, artificial intelligence, and digital transformation solutions that help future-proof your business.</p>
             </section>
 
             <section id="contact">
                 <h2>Contact Us</h2>
-                <p>Reach out to us via email or phone. Our team is ready to provide the support you need to make the most of emerging technologies.</p>
+                <p>Have any questions? Get in touch with us to learn how we can assist you in achieving your goals.</p>
             </section>
         </div>
     </div>
 
     <!-- Footer -->
     <footer>
-        <p>&copy; 2024 Future Tech. All Rights Reserved.</p>
+        <p>&copy; 2024 Future Bright. All Rights Reserved.</p>
     </footer>
 
 </body>
 </html>
+
 
 
