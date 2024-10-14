@@ -1,0 +1,167 @@
+/* Root Variables */
+:root {
+    --primary-color: #FFFFFF;
+    --secondary-color: #F8F8F8;
+    --accent-color: #333333;
+    --highlight-color: #007BFF;
+    --light-gray: #eaeaea;
+    --border-color: #D1D1D1;
+    --box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.1);
+    --transition-speed: 0.3s ease;
+}
+
+/* Global Styles */
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: var(--primary-color);
+    color: var(--accent-color);
+    line-height: 1.6;
+}
+
+/* Header Styles */
+header {
+    background: var(--secondary-color);
+    padding: 2rem;
+    text-align: center;
+    box-shadow: var(--box-shadow);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+header h1 {
+    font-size: 2.8rem;
+    color: var(--highlight-color);
+    letter-spacing: 0.1em;
+}
+
+/* Navigation */
+nav {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-top: 1rem;
+}
+
+nav a {
+    color: var(--accent-color);
+    text-decoration: none;
+    font-weight: 700;
+    padding: 0.5rem 1rem;
+    border-radius: 25px;
+    transition: background-color var(--transition-speed), color var(--transition-speed);
+}
+
+nav a:hover {
+    background-color: var(--light-gray);
+    color: var(--highlight-color);
+}
+
+/* Hero Section */
+.hero {
+    height: 75vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    position: relative;
+    padding: 0 20px;
+}
+
+.hero h2 {
+    font-size: 2.5rem;
+    font-weight: 400;
+    color: var(--accent-color);
+    text-align: center;
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Main Content Area */
+.container {
+    max-width: 1200px;
+    margin: 50px auto;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    gap: 2rem;
+}
+
+/* Sidebar Styles */
+aside {
+    flex: 1;
+    background: var(--secondary-color);
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: var(--box-shadow);
+}
+
+aside h3 {
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+    color: var(--highlight-color);
+}
+
+/* Main Content Styles */
+.content {
+    flex: 3;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+section {
+    background: var(--primary-color);
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: var(--box-shadow);
+    transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+}
+
+section:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 15px 25px rgba(0, 0, 0, 0.15);
+}
+
+section h2 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+section p {
+    font-size: 1.1rem;
+    color: #666;
+    line-height: 1.8;
+}
+
+/* Footer Styles */
+footer {
+    background: var(--secondary-color);
+    padding: 2rem;
+    text-align: center;
+    margin-top: 50px;
+    box-shadow: var(--box-shadow);
+}
+
+footer p {
+    font-size: 1rem;
+    color: var(--accent-color);
+}
+
+/* Responsive Layout */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+    }
+
+    aside {
+        order: 2;
+    }
+
+    .hero h2 {
+        font-size: 2rem;
+    }
+
+    header h1 {
+        font-size: 2.5rem;
+    }
+}
