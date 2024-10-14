@@ -59,13 +59,12 @@ nav a:hover {
 
 /* Hero Section */
 .hero {
-    height: 75vh; /* Or any height you prefer */
+    height: 75vh;
     display: flex;
     align-items: center;
     justify-content: center;
     position: relative;
     padding: 0 20px;
-    overflow: hidden; /* Ensures no overflow */
 }
 
 /* Wolf Image */
@@ -73,11 +72,11 @@ nav a:hover {
     background-image: url('https://t3.ftcdn.net/jpg/05/55/79/96/360_F_555799679_wN07UXTYUdeBPJeb5quYBAloxJ9Wafdn.jpg'); /* New wolf image URL */
     background-size: cover; /* Ensures the image covers the area */
     background-position: center; /* Centers the image */
+    width: 100%; /* Full width */
+    height: 100vh; /* Full height of the viewport */
     position: absolute; /* Positioned absolutely within the hero section */
     top: 0; /* Aligns to the top of the section */
     left: 0; /* Aligns to the left of the section */
-    width: 100%; /* Full width */
-    height: 100%; /* Full height */
     z-index: -1; /* Places the image behind the text */
 }
 
