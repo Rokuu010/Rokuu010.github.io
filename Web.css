@@ -63,9 +63,21 @@ nav a:hover {
     display: flex;
     align-items: center;
     justify-content: center;
-    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
     position: relative;
     padding: 0 20px;
+}
+
+/* Wolf Image */
+.wolf {
+    background-image: url('https://t3.ftcdn.net/jpg/05/55/79/96/360_F_555799679_wN07UXTYUdeBPJeb5quYBAloxJ9Wafdn.jpg'); /* New wolf image URL */
+    background-size: cover; /* Ensures the image covers the area */
+    background-position: center; /* Centers the image */
+    width: 100%; /* Full width */
+    height: 100vh; /* Full height of the viewport */
+    position: absolute; /* Positioned absolutely within the hero section */
+    top: 0; /* Aligns to the top of the section */
+    left: 0; /* Aligns to the left of the section */
+    z-index: -1; /* Places the image behind the text */
 }
 
 .hero h2 {
@@ -74,19 +86,6 @@ nav a:hover {
     color: var(--accent-color);
     text-align: center;
     text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);
-}
-
-/* Wolf Image */
-.wolf {
-    background-image: url('https://images.unsplash.com/photo-1590305263288-bb66e1c2b086?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MXwyMDg5N3wwfDF8c2VhcmNofDV8fHdvbGZ8ZW58MHx8fHwxNjA2NTEyNTE3&ixlib=rb-1.2.1&q=80&w=400'); /* Replace with any wolf image URL */
-    background-size: cover;
-    background-position: center;
-    width: 200px; /* Adjust width as needed */
-    height: 200px; /* Adjust height as needed */
-    position: absolute; /* Positioning for better placement */
-    bottom: 20%; /* Adjust vertical placement */
-    left: 50%; /* Center horizontally */
-    transform: translateX(-50%); /* Center horizontally */
 }
 
 /* Main Content Area */
@@ -178,4 +177,3 @@ footer p {
         font-size: 2.5rem;
     }
 }
-
