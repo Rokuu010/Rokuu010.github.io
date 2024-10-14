@@ -76,26 +76,17 @@ nav a:hover {
     text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);
 }
 
-/* Wolf Animation */
+/* Wolf Image */
 .wolf {
-    width: 100px; /* Adjust width as needed */
-    height: 100px; /* Adjust height as needed */
-    background-color: var(--accent-color);
-    clip-path: polygon(50% 0%, 100% 30%, 80% 100%, 20% 100%, 0% 30%);
-    animation: pulse 2s infinite;
+    background-image: url('https://images.unsplash.com/photo-1590305263288-bb66e1c2b086?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MXwyMDg5N3wwfDF8c2VhcmNofDV8fHdvbGZ8ZW58MHx8fHwxNjA2NTEyNTE3&ixlib=rb-1.2.1&q=80&w=400'); /* Replace with any wolf image URL */
+    background-size: cover;
+    background-position: center;
+    width: 200px; /* Adjust width as needed */
+    height: 200px; /* Adjust height as needed */
     position: absolute; /* Positioning for better placement */
     bottom: 20%; /* Adjust vertical placement */
     left: 50%; /* Center horizontally */
     transform: translateX(-50%); /* Center horizontally */
-}
-
-@keyframes pulse {
-    0%, 100% {
-        transform: scale(1);
-    }
-    50% {
-        transform: scale(1.1);
-    }
 }
 
 /* Main Content Area */
