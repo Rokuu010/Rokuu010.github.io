@@ -80,9 +80,8 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-            padding: 0 20px;
             position: relative;
+            padding: 0 20px;
         }
 
         .hero h2 {
@@ -91,29 +90,20 @@
             color: var(--accent-color);
             text-align: center;
             opacity: 0.9; /* Less fading for better readability */
+            z-index: 1; /* Ensure text is above the background */
         }
 
-        /* Wolf Animation */
+        /* Wolf Image */
         .wolf {
             background-image: url('https://t3.ftcdn.net/jpg/05/55/79/96/360_F_555799679_wN07UXTYUdeBPJeb5quYBAloxJ9Wafdn.jpg'); /* New wolf image URL */
             background-size: cover;
             background-position: center;
-            width: 200px; /* Adjust width as needed */
-            height: 200px; /* Adjust height as needed */
-            animation: pulse 2s infinite;
-            position: absolute; /* Positioning for better placement */
-            bottom: 20%; /* Adjust vertical placement */
-            left: 50%; /* Center horizontally */
-            transform: translateX(-50%); /* Center horizontally */
-        }
-
-        @keyframes pulse {
-            0%, 100% {
-                transform: scale(1);
-            }
-            50% {
-                transform: scale(1.1);
-            }
+            position: absolute; /* Positioned absolutely within the hero section */
+            top: 0; /* Aligns to the top of the section */
+            left: 0; /* Aligns to the left of the section */
+            width: 100%; /* Full width */
+            height: 100%; /* Full height */
+            z-index: -1; /* Places the image behind the text */
         }
 
         /* Main Content Area */
