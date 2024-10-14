@@ -93,28 +93,25 @@
             opacity: 0.9; /* Less fading for better readability */
         }
 
-        .hero::before {
-            content: "";
-            position: absolute;
-            width: 200px;
-            height: 200px;
-            background: var(--light-gray);
-            top: 20%;
-            left: -50px;
-            border-radius: 50%;
-            filter: blur(30px);
+        /* Wolf Animation */
+        .wolf {
+            width: 100px; /* Adjust width as needed */
+            height: 100px; /* Adjust height as needed */
+            background: url('path/to/wolf-image.png') no-repeat center / contain; /* Replace with actual image URL */
+            animation: pulse 2s infinite;
+            position: absolute; /* Positioning for better placement */
+            bottom: 20%; /* Adjust vertical placement */
+            left: 50%; /* Center horizontally */
+            transform: translateX(-50%); /* Center horizontally */
         }
 
-        .hero::after {
-            content: "";
-            position: absolute;
-            width: 300px;
-            height: 300px;
-            background: var(--light-gray);
-            bottom: -100px;
-            right: -100px;
-            border-radius: 50%;
-            filter: blur(60px);
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.1);
+            }
         }
 
         /* Main Content Area */
@@ -232,6 +229,7 @@
     <!-- Hero Section -->
     <section class="hero" id="home">
         <h2>"Every Sigma was once a Beta but not every Beta can become a Sigma."</h2>
+        <div class="wolf"></div> <!-- Wolf image integrated here -->
     </section>
 
     <!-- Main Content Area -->
