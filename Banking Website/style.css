@@ -1,0 +1,296 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #F2F2F2; /* Light Gray */
+}
+
+/* Header */
+header {
+    background-color: #C0C0C0; /* Silver */
+    color: #333333; /* Dark Gray */
+    padding: 20px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.logo h1 {
+    text-align: center;
+    font-size: 36px;
+    font-weight: bold;
+    color: #333333;
+    margin-bottom: 20px;
+}
+
+/* Navigation Bar */
+nav {
+    background-color: #C0C0C0;
+    padding: 10px;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+}
+
+nav li {
+    margin-right: 20px;
+}
+
+nav a {
+    color: #333333;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 10px 20px;
+    border: 2px solid #333333;
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+nav a:hover {
+    background-color: #333333;
+    color: #fff;
+}
+
+/* Main Content */
+main {
+    padding: 20px;
+}
+
+/* Hero Section */
+.hero {
+    position: relative;
+    height: 500px;
+    background-image: url('hero-image.jpg');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+.hero-image {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    object-fit: cover;
+    z-index: -1;
+}
+
+.hero-text {
+    position: relative;
+    z-index: 1;
+}
+
+.hero h1 {
+    font-size: 48px;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.hero p {
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+/* Buttons */
+.hero a,
+.button {
+    background-color: #333333;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    display: inline-block;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.hero a:hover,
+.button:hover {
+    background-color: #555;
+}
+
+/* Calculator Section */
+.calculator {
+    padding: 40px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    margin: 20px auto;
+    max-width: 600px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.calculator h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: #333;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #555;
+}
+
+input[type="number"] {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 100%;
+    box-sizing: border-box;
+    font-size: 16px;
+    transition: border-color 0.3s ease;
+}
+
+input[type="number"]:focus {
+    border-color: #666;
+    outline: none;
+}
+
+/* Calculate Button with Hover Effect */
+button {
+    margin: 20px auto;
+    background-color: #333;
+    color: #fff;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+/* Hover Effect for the Calculate Button */
+button:hover {
+    background-color: #555; /* Change the background color when hovered */
+    transform: scale(1.05);  /* Slightly increase the button size */
+}
+
+/* Services Section */
+.services {
+    background-color: #F2F2F2;
+    padding: 50px;
+    text-align: center;
+}
+
+.service-cards {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.service-card {
+    border: 1px solid #ccc;
+    padding: 20px;
+    margin: 10px;
+    width: 300px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    background-color: #fff;
+    border-radius: 8px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+}
+
+.service-card:hover {
+    transform: translateY(-10px); /* Lifts the card */
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2); /* Adds a shadow effect */
+}
+
+.service-card h3 {
+    font-size: 1.5em;
+    color: #333;
+}
+
+.service-card p {
+    font-size: 1.1em;
+    color: #555;
+}
+
+/* Call-to-Action Section */
+.cta {
+    background-color: #F2F2F2;
+    padding: 50px;
+    text-align: center;
+}
+
+/* FAQ Section Styling */
+.faq {
+    padding: 40px;
+    background-color: white;
+    margin: 40px 10%;
+    border-radius: 8px;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.faq-item {
+    margin-bottom: 25px;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #fafafa;
+    transition: background-color 0.3s ease;
+}
+
+.faq-item:hover {
+    background-color: #f1f1f1; /* Light hover effect */
+}
+
+.faq-item h3 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.faq-item p {
+    font-size: 1.1em;
+    color: #555;
+}
+
+/* Hide FAQ answers initially */
+.faq-answer {
+    display: none; /* Hide FAQ answers by default */
+}
+
+/* Footer */
+footer {
+    background-color: #C0C0C0; /* Same gray as header and navigation */
+    color: #333333;
+    text-align: center;
+    padding: 20px;
+}
+
+/* Progress Bar */
+#progressBar {
+    width: 100%;
+    background-color: #e0e0e0;
+    height: 20px;
+    border-radius: 10px;
+    margin-top: 20px;
+}
+
+#progressBarInner {
+    height: 100%;
+    width: 0%;
+    background-color: #4caf50;
+    border-radius: 10px;
+    transition: width 0.1s ease-in-out;
+}
+
+#progressText {
+    font-size: 16px;
+    margin-top: 10px;
+}

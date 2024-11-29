@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mortgage Calculator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="logo">
+            <h1>Millership Industries</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="home.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+                <li><a href="faq.html">FAQ</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <img src="mortgage2.jpg" alt="Mortgage" class="hero-image">
+            <div class="hero-text">
+                <h1>Mortgage Calculator</h1>
+                <p>Calculate your potential loan eligibility, monthly payments, and where your money will be spent in this easy-to-use tool.</p>
+            </div>
+        </section>
+
+        <!-- Mortgage Calculator Form -->
+        <section class="calculator">
+            <form id="mortgageForm">
+                <div class="form-group">
+                    <label for="loanAmount">Loan Amount (£):</label>
+                    <input type="number" id="loanAmount" name="loanAmount" placeholder="Enter loan amount">
+                </div>
+
+                <div class="form-group">
+                    <label for="interestRate">Interest Rate (%):</label>
+                    <input type="number" id="interestRate" name="interestRate" placeholder="Enter interest rate">
+                </div>
+
+                <div class="form-group">
+                    <label for="loanTerm">Loan Term (years):</label>
+                    <input type="number" id="loanTerm" name="loanTerm" placeholder="Enter loan term">
+                </div>
+
+                <div class="form-group">
+                    <label for="income">Monthly Income (£):</label>
+                    <input type="number" id="income" name="income" placeholder="Enter your monthly income">
+                </div>
+
+                <button type="button" id="calculateBtn">Calculate</button>
+            </form>
+        </section>
+
+        <!-- Results Section -->
+        <section class="results">
+            <div id="result">
+                <p id="progressText"></p>
+                <div id="progressBar">
+                    <div id="progressBarInner"></div>
+                </div>
+                <p id="monthlyPayment"></p>
+                <p id="eligibility"></p>
+                <p id="expenseBreakdown"></p>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Millership Industries. All rights reserved.</p>
+        <p>Committed to your financial future.</p>
+    </footer>
+
+    <!-- External JavaScript File -->
+    <script src="script.js"></script>
+    
+    <!-- Inline JavaScript for Mortgage Calculation -->
+    <script>
+        document.getElementById('calculateBtn').addEventListener('click', function() {
+            calculatePayment(); // Trigger the calculation function on button click
+        });
+
+        function calculatePayment() {
+            // Reset previous result
+            document.getElementById("progressText").textContent = "Simulating Loan Payment...";
+            document.getElementById("monthlyPayment").textContent = "";
+            document.getElementById("eligibility").textContent = "";
+            document.getElementById("expenseBreakdown").textContent = "";
+
+            // Get input values
+            const loanAmount = parseFloat(document.getElementById("loanAmount").value);
+            const interestRate = parseFloat(document.getElementById("interestRate").value) / 100 / 12;
+            const loanTerm = parseFloat(document.getElementById("loanTerm").value) * 12;
+            const income = parseFloat(document.getElementById("income").value);
+
+            // Validation checks for input values
+            if (isNaN(loanAmount) || loanAmount <= 0 || isNaN(interestRate) || isNaN(loanTerm) || loanTerm <= 0 || isNaN(income) || income <= 0) {
+                document.getElementById("result").innerHTML = "<p>Please enter valid numbers.</p>";
+                return;
+            }
+
+            // Mortgage calculation formula
+            const monthlyPayment = loanAmount * interestRate * Math.pow(1 + interestRate, loanTerm) / (Math.pow(1 + interestRate, loanTerm) - 1);
+            const affordablePayment = income * 0.30;
+
+            // Progress Bar Animation
+            const progressBar = document.getElementById("progressBarInner");
+            const progressText = document.getElementById("progressText");
+            let currentPayment = 1;
+            const totalPayments = loanTerm;
+            const animationDuration = 6000; // Animation duration
+
+            // Simulate the loan payment progress
+            const intervalId = setInterval(() => {
+                const percentage = (currentPayment / totalPayments) * 100;
+                progressBar.style.width = percentage + "%";
+                progressText.textContent = `Simulating Loan Payment: Payment ${currentPayment} of ${totalPayments}`;
+
+                currentPayment++;
+
+                if (currentPayment > totalPayments) {
+                    clearInterval(intervalId);
+                    progressText.textContent = "Simulation Complete!";
+                    document.getElementById("monthlyPayment").textContent = `Monthly Payment: £${monthlyPayment.toFixed(2)}`;
+
+                    // Loan eligibility check
+                    if (monthlyPayment > affordablePayment) {
+                        document.getElementById("eligibility").textContent = "Loan denied: Monthly payment exceeds 30% of your income.";
+                    } else {
+                        document.getElementById("eligibility").textContent = "You are eligible for this loan based on your income.";
+                    }
+
+                    // Breakdown of loan expenses
+                    const totalInterestPaid = (monthlyPayment * loanTerm) - loanAmount;
+                    document.getElementById("expenseBreakdown").innerHTML = `
+                        <strong>Expense Breakdown:</strong><br>
+                        Principal: £${loanAmount.toFixed(2)}<br>
+                        Total Interest: £${totalInterestPaid.toFixed(2)}<br>
+                        Monthly Interest Payment: £${(monthlyPayment - (loanAmount * interestRate)).toFixed(2)}<br>
+                        Monthly Principal Payment: £${(monthlyPayment - (monthlyPayment - (loanAmount * interestRate))).toFixed(2)}<br>
+                        Remaining Income After Loan Payment: £${(income - monthlyPayment).toFixed(2)}
+                    `;
+                }
+            }, animationDuration / totalPayments);
+        }
+    </script>
+
+</body>
+</html>

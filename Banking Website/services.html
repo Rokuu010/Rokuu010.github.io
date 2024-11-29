@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Services</title>
+    <!-- Material Icons CDN -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- jQuery CDN -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="logo">
+            <h1>Millership Industries</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="home.html">Home</a></li>
+                <li><a href="mortgage.html">Mortgage Calculator</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="faq.html">FAQ</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main Content Section -->
+    <main>
+        <section class="hero">
+            <img src="services2.jpg" alt="Services" class="hero-image">
+            <div class="hero-overlay"></div> <!-- Dark overlay div -->
+            <div class="hero-text">
+                <h1>Our Services</h1>
+                <p>Explore a variety of financial solutions custom to you.</p>
+            </div>
+        </section>
+
+        <section class="services">
+            <div class="service">
+                <span class="material-icons service-icon">savings</span>
+                <h2>Savings Accounts</h2>
+                <p>Keep your nest egg safe with our high-yield savings account plus flexible savings.</p>
+                <div class="service-details">
+                    <p>Depending on your balance and how long you plan to keep your money with us, our savings accounts have a range of interest rate options. Start saving today!</p>
+                </div>
+            </div>
+
+            <div class="service">
+                <span class="material-icons service-icon">account_balance</span>
+                <h2>Loans</h2>
+                <p>Finance your dreams with our range of loan products from personal loans to home loans to business loans.</p>
+                <div class="service-details">
+                    <p>Various terms and attractive interests available for all types of financing.</p>
+                </div>
+            </div>
+
+            <div class="service">
+                <span class="material-icons service-icon">trending_up</span>
+                <h2>Investments</h2>
+                <p>The other type of your investment we can invest in long-term investment plans and perhaps most investing plans to make grow faster in finance.</p>
+                <div class="service-details">
+                    <p>Our expert advisors will guide you through the process of making informed investment decisions to maximise your returns over a period of time.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- CSS Styling -->
+    <style>
+        /* Global styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #F2F2F2; /* Light Gray */
+        }
+
+        /* Header */
+        header {
+            background-color: #C0C0C0; /* Silver */
+            color: #333333; /* Dark Gray */
+            padding: 20px;
+            box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .logo h1 {
+            text-align: center;
+            font-size: 36px;
+            font-weight: bold;
+            color: #333333; /* Dark Gray */
+            margin-bottom: 20px;
+        }
+
+        /* Navigation bar */
+        nav {
+            background-color: #C0C0C0; /* Silver */
+            padding: 10px;
+        }
+
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        nav li {
+            display: inline-block;
+            margin-right: 20px;
+        }
+
+        nav a {
+            color: #333333; /* Dark Gray */
+            text-decoration: none;
+            font-weight: bold;
+            padding: 10px 20px;
+            border: 2px solid #333333; /* Border around links */
+            border-radius: 5px; /* Rounded corners */
+            transition: background-color 0.3s, color 0.3s; /* Smooth transition for hover effects */
+        }
+
+        nav a:hover {
+            background-color: #333333; /* Dark background on hover */
+            color: #fff; /* White text on hover */
+        }
+
+        /* Main Content */
+        main {
+            padding: 20px;
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            height: 500px;
+            background-image: url('services2.jpg');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            text-align: center;
+        }
+
+        .hero-image {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            object-fit: cover;
+            z-index: -1; /* Ensures the image stays behind the text */
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5); /* Dark overlay */
+            z-index: 0; /* Sits between the image and the text */
+        }
+
+        .hero-text {
+            position: relative;
+            z-index: 1; /* Ensures text stays on top of the overlay */
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Optional: adds a subtle shadow for better visibility */
+        }
+
+        .hero p {
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+
+        .hero a {
+            background-color: #333333; /* Dark Gray */
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+        }
+
+        /* Service Section */
+        .services {
+            background-color: #F2F2F2; /* Light Gray */
+            padding: 50px;
+            text-align: center;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px; /* Space between services */
+        }
+
+        .services .service {
+            display: flex;
+            flex-direction: column;
+            background-color: #fff;
+            padding: 20px;
+            width: 45%;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: transform 0.3s ease-in-out, background-color 0.3s ease-in-out;
+            cursor: pointer;
+        }
+
+        .services .service:hover {
+            transform: scale(1.05); /* Slight zoom effect on hover */
+            background-color: #f9f9f9; /* Light background change on hover */
+        }
+
+        .services .service-icon {
+            font-size: 48px;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .services .service h2 {
+            margin-top: 10px;
+            color: #333;
+        }
+
+        .services .service p {
+            color: #555;
+            margin: 10px 0;
+        }
+
+        .service-details {
+            display: none;
+            padding-top: 10px;
+            font-size: 16px;
+            color: #777;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #C0C0C0; /* Silver */
+            color: #333333; /* Dark Gray */
+            text-align: center;
+            padding: 20px;
+        }
+    </style>
+
+    <!-- External JavaScript -->
+    <script>
+        $(document).ready(function() {
+            $(".service").click(function() {
+                $(this).find(".service-details").slideToggle(); // Toggle the details of the clicked service
+            });
+        });
+    </script>
+
+    <!-- Footer Section -->
+    <footer>
+        <p>&copy; 2024 Millership Industries. All rights reserved.</p>
+        <p>Committed to your financial future.</p>
+    </footer>
+</body>
+</html>
